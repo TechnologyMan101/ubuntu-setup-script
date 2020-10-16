@@ -32,4 +32,3 @@ Refer to image for media controls on desktop keyboards.
 
 # Media Shortcuts Image:
 ![Error](https://raw.githubusercontent.com/TechnologyMan101/ubuntu-setup-script/main/Media%20Shortcuts%20for%20Desktop%20Keyboards.png)
-![Error](https://raw.githubusercontent.com/TechnologyMan101/ubuntu-setup-script/main/Media%20Shortcuts%20for%20Desktop%20Keyboards.png)
