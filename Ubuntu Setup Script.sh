@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "================================="
-	echo " --- Ubuntu Setup Script 3.3 ---"
+	echo " --- Ubuntu Setup Script 3.4 ---"
 	echo "================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -83,7 +83,7 @@ full () {
 	sudo apt install -y obs-studio
 	sudo add-apt-repository -y ppa:minetestdevs/stable
 	sudo apt install -y minetest
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+	curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt update -y
 	sudo apt install -y spotify-client
