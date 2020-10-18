@@ -4,15 +4,16 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "================================="
-	echo " --- Ubuntu Setup Script 3.4 ---"
+	echo " --- Ubuntu Setup Script 3.5 ---"
 	echo "================================="
-	echo "Supported Ubuntu Versions: 20.04 LTS"
+	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
 	tput setaf 3
 	echo "You can open this script in a text editor to see packages to be installed in detail."
 	tput setaf 9
 	echo "System will automatically reboot after the script is run!!!"
 	echo "It is not recommended to run this script more than once!!!"
+	echo "It is not recommended to run this script on the Ubuntu flavors!!!"
 	echo "Make sure you have a stable and fast Internet connection before proceeding!!!"
 	tput setaf 3
 	echo "Press 1 to perform a Full Install (All User Packages)"
@@ -65,7 +66,7 @@ full () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extensions gdebi gnome-weather
+	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extensions gdebi gnome-weather gnome-firmware
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
@@ -103,7 +104,7 @@ minimal () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gnome-tweaks gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup gnome-sushi unoconv fonts-cantarell htop curl git gnome-shell-extensions gdebi
+	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gnome-tweaks gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup gnome-sushi unoconv fonts-cantarell htop curl git gnome-shell-extensions gdebi gnome-firmware
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
