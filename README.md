@@ -4,9 +4,9 @@ Bash Script to Set Up a Fresh Install of Ubuntu 20.04 LTS and above.
 
 # Documentation
 
-Version 3.4
+Version 3.5
 
-Supported Ubuntu Versions: 20.04 LTS
+Supported Ubuntu Versions: 20.04 LTS, 20.10
 
 **Please Run Script After Following Instructions Here**
 
