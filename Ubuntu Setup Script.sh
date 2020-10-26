@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "================================="
-	echo " --- Ubuntu Setup Script 3.6 ---"
+	echo " --- Ubuntu Setup Script 3.7 ---"
 	echo "================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -37,8 +37,8 @@ fullmenu () {
 	echo "=============================="
 	echo " --- Full Install Options ---"
 	echo "=============================="
-	echo "Press 1 to select the configuration for Ubuntu. This applies to the primary edition of Ubuntu only. Please do not use this on the official Ubuntu flavors."
-	echo "Press 2 to select the universal configuration for Ubuntu based distros. This includes official Ubuntu flavors and derivatives."
+	echo "Press 1 to select the configuration for Ubuntu. This applies to the primary edition of Ubuntu only. Please do not use this on the official Ubuntu flavors or derivatives."
+	echo "Press 2 to select the universal configuration for Ubuntu-based distros. This includes official Ubuntu flavors and derivatives. This option is not guaranteed to always work although it has been designed to try to work on as many configurations of Ubuntu-based distros as possible."
 	tput setaf 9
 	echo "Press Q to return to Main Menu"
 	tput sgr0
@@ -59,8 +59,8 @@ minimalmenu () {
 	echo "================================="
 	echo " --- Minimal Install Options ---"
 	echo "================================="
-	echo "Press 1 to select the configuration for Ubuntu. This applies to the primary edition of Ubuntu only. Please do not use this on the official Ubuntu flavors."
-	echo "Press 2 to select the universal configuration for Ubuntu based distros. This includes official Ubuntu flavors and derivatives."
+	echo "Press 1 to select the configuration for Ubuntu. This applies to the primary edition of Ubuntu only. Please do not use this on the official Ubuntu flavors or derivatives."
+	echo "Press 2 to select the universal configuration for Ubuntu-based distros. This includes official Ubuntu flavors and derivatives. This option is not guaranteed to always work although it has been designed to try to work on as many configurations of Ubuntu-based distros as possible."
 	tput setaf 9
 	echo "Press Q to return to Main Menu"
 	tput sgr0
@@ -136,7 +136,7 @@ full () {
 	sudo apt update -y
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
 	sudo add-apt-repository -y ppa:linuxuprising/java
-	sudo apt install -y oracle-java14-installer
+	sudo apt install -y oracle-java15-installer
 	java --version
 	sleep 3
 	java -version
@@ -155,6 +155,10 @@ full () {
 	sudo apt autoclean -y
 	sudo snap refresh
 	sudo usermod -aG cdrom $USER
+	gio mime text/calendar org.gnome.Calendar.desktop
+	echo "[Desktop Entry]
+	Hidden=true" > /tmp/1
+	find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 	finish
 }
 minimal () {
@@ -176,6 +180,7 @@ minimal () {
 	sudo apt autoremove -y
 	sudo apt autoclean -y
 	sudo snap refresh
+	gio mime text/calendar org.gnome.Calendar.desktop
 	finish
 }
 fulluniversal () {
@@ -193,7 +198,7 @@ fulluniversal () {
 	sudo apt update -y
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
 	sudo add-apt-repository -y ppa:linuxuprising/java
-	sudo apt install -y oracle-java14-installer
+	sudo apt install -y oracle-java15-installer
 	java --version
 	sleep 3
 	java -version
@@ -212,6 +217,10 @@ fulluniversal () {
 	sudo apt autoclean -y
 	sudo snap refresh
 	sudo usermod -aG cdrom $USER
+	gio mime text/calendar org.gnome.Calendar.desktop
+	echo "[Desktop Entry]
+	Hidden=true" > /tmp/1
+	find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 	finish
 }
 minimaluniversal () {
@@ -233,6 +242,7 @@ minimaluniversal () {
 	sudo apt autoremove -y
 	sudo apt autoclean -y
 	sudo snap refresh
+	gio mime text/calendar org.gnome.Calendar.desktop
 	finish
 }
 # End of Function Cluster
