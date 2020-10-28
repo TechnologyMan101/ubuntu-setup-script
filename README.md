@@ -4,13 +4,15 @@ Bash script to set up a fresh install of Ubuntu.
 
 # Documentation
 
-Version 3.7
+Version 3.8
 
 Supported Ubuntu Versions: 20.04 LTS, 20.10
 
 **Please Run Script After Following Instructions Here**
 
 **The Extras folder also contains other tools you may want including font packs.**
+
+**Instructions on this document may not completely apply to you if you are using an offical Ubuntu flavor or a derivative of Ubuntu.**
 
 Please install .deb files and files using other types of installation formats using files manually (if you have them).
 
@@ -32,3 +34,8 @@ Refer to image for media controls on desktop keyboards.
 
 # Media Shortcuts Image:
 ![Error](https://raw.githubusercontent.com/TechnologyMan101/ubuntu-setup-script/main/Media%20Shortcuts%20for%20Desktop%20Keyboards.png)
+
+
+# VM Users
+
+Minimal Install is recommended. VM Tools can be found at  https://mega.nz/folder/cRZTkAJD#dV8CG6th0a-10Fu6yCG-5Q in Extras.
