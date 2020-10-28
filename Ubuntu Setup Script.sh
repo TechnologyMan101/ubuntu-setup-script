@@ -4,12 +4,14 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "================================="
-	echo " --- Ubuntu Setup Script 3.7 ---"
+	echo " --- Ubuntu Setup Script 3.8 ---"
 	echo "================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
 	echo "This script will show terminal output. This is normal."
 	echo "You can open this script in a text editor to see packages to be installed in detail."
+	tput setaf 10
+	echo "You are encouraged to modify this script for your own needs."
 	tput setaf 9
 	echo "System will automatically reboot after the script is run!!!"
 	echo "It is not recommended to run this script more than once!!!"
@@ -129,7 +131,7 @@ full () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extension-prefs gdebi gnome-weather gnome-firmware gucharmap menulibre minetest
+	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extension-prefs gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples snapd
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
@@ -153,9 +155,13 @@ full () {
 	sudo apt full-upgrade -y
 	sudo apt autoremove -y
 	sudo apt autoclean -y
+	sudo snap install bucklespring mattermost-desktop chromium
 	sudo snap refresh
+	echo "Adding current user to cdrom group..."
 	sudo usermod -aG cdrom $USER
 	gio mime text/calendar org.gnome.Calendar.desktop
+	echo "Patching LSP icons..."
+	mkdir ~/.local/share/applications
 	echo "[Desktop Entry]
 	Hidden=true" > /tmp/1
 	find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
@@ -169,7 +175,7 @@ minimal () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gnome-tweaks gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup gnome-sushi unoconv fonts-cantarell htop curl git gnome-shell-extension-prefs gdebi gnome-firmware gucharmap menulibre
+	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gnome-tweaks gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup gnome-sushi unoconv fonts-cantarell htop curl git gnome-shell-extension-prefs gdebi gnome-firmware gucharmap menulibre gtk-3-examples
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
@@ -191,7 +197,7 @@ fulluniversal () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gdebi gnome-weather gnome-firmware gucharmap menulibre minetest
+	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples snapd
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
@@ -231,7 +237,7 @@ minimaluniversal () {
 	sleep 3
 	clear
 	sudo apt update -y
-	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup fonts-cantarell htop curl git gdebi gnome-firmware gucharmap menulibre
+	sudo apt install -y ubuntu-restricted-extras synaptic pavucontrol rhythmbox gparted p7zip-full p7zip-rar gpart network-manager-openvpn-gnome ffmpeg gufw dconf-editor deja-dup fonts-cantarell htop curl git gdebi gnome-firmware gucharmap menulibre gtk-3-examples
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo dpkg --add-architecture i386
