@@ -222,8 +222,11 @@ fulluniversal () {
 	sudo apt autoremove -y
 	sudo apt autoclean -y
 	sudo snap refresh
+	echo "Adding current user to cdrom group..."
 	sudo usermod -aG cdrom $USER
 	gio mime text/calendar org.gnome.Calendar.desktop
+	echo "Patching LSP icons..."
+	mkdir ~/.local/share/applications
 	echo "[Desktop Entry]
 	Hidden=true" > /tmp/1
 	find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
