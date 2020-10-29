@@ -3,9 +3,9 @@
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "================================="
-	echo " --- Ubuntu Setup Script 3.9 ---"
-	echo "================================="
+	echo "=================================="
+	echo " --- Ubuntu Setup Script 3.10 ---"
+	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
 	echo "This script will show terminal output. This is normal."
@@ -221,6 +221,7 @@ fulluniversal () {
 	sudo apt full-upgrade -y
 	sudo apt autoremove -y
 	sudo apt autoclean -y
+	sudo snap install bucklespring mattermost-desktop chromium
 	sudo snap refresh
 	echo "Adding current user to cdrom group..."
 	sudo usermod -aG cdrom $USER
