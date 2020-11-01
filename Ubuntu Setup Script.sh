@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "=================================="
-	echo " --- Ubuntu Setup Script 3.12 ---"
+	echo " --- Ubuntu Setup Script 3.13 ---"
 	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -19,15 +19,16 @@ mainmenu () {
 	tput setaf 3
 	echo "Press 1 to perform a Full Install (All User Packages)"
 	echo "Press 2 to perform a Minimal Install (Essentials)"
+	echo "Press 3 to perform a debloat"
 	tput setaf 9
 	echo "Press Q to quit"
 	tput sgr0
 	echo "Enter your selection followed by <return>:"
-	tput sgr0
 	read answer
 	case "$answer" in
 		1) fullmenu;;
 		2) minimalmenu;;
+		3) debloatconfirm;;
 		q) quitscript;;
 		Q) quitscript;;
 	esac
@@ -45,7 +46,6 @@ fullmenu () {
 	echo "Press Q to return to Main Menu"
 	tput sgr0
 	echo "Enter your selection followed by <return>:"
-	tput sgr0
 	read answer
 	case "$answer" in
 		1) full;;
@@ -67,7 +67,6 @@ minimalmenu () {
 	echo "Press Q to return to Main Menu"
 	tput sgr0
 	echo "Enter your selection followed by <return>:"
-	tput sgr0
 	read answer
 	case "$answer" in
 		1) minimal;;
@@ -76,6 +75,27 @@ minimalmenu () {
 		Q) mainmenu;;
 	esac
 	badoptionminimal
+}
+debloatconfirm () {
+	clear
+ 	tput setaf 3
+	echo "=============================="
+	echo " --- Debloat Confirmation ---"
+	echo "=============================="
+	echo "This will remove all Ubuntu customizations to GNOME and revert to Vanilla GNOME."
+	echo "This will also remove Snap support."
+	echo "After this operation, you may still need to tweak the system to Vanilla GNOME or your personal preference."
+	tput setaf 9
+	echo "Some operations performed in this script are irreversible!!!"
+	tput sgr0
+	echo "Are you sure you want to continue? [y/N]"
+	echo "Enter your selection followed by <return>:"
+	read answer
+	case "$answer" in
+		y) debloat;;
+		Y) debloat;;
+	esac
+	mainmenu
 }
 quitscript () {
 	tput sgr0
@@ -251,6 +271,20 @@ minimaluniversal () {
 	sudo apt autoclean -y
 	sudo snap refresh
 	gio mime text/calendar org.gnome.Calendar.desktop
+	finish
+}
+debloat () {
+	clear
+	tput setaf 3
+	echo "Debloating..."
+	tput sgr0
+	sleep 3
+	clear
+	sudo apt update -y
+	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software
+	sudo rm /usr/share/plymouth/ubuntu-logo.png
+	sudo apt purge -y ubuntu-desktop ubuntu-session snapd gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
+	sudo apt autoremove -y
 	finish
 }
 # End of Function Cluster
