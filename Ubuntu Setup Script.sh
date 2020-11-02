@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "=================================="
-	echo " --- Ubuntu Setup Script 3.15 ---"
+	echo " --- Ubuntu Setup Script 3.16 ---"
 	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -284,8 +284,9 @@ debloat () {
 	sudo apt update -y
 	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software gnome-backgrounds
 	sudo rm /usr/share/plymouth/ubuntu-logo.png
-	sudo apt purge -y ubuntu-desktop ubuntu-session gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
+	sudo apt purge -y ubuntu-desktop ubuntu-session snapd gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
 	sudo apt autoremove -y --purge
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	finish
 }
 # End of Function Cluster
