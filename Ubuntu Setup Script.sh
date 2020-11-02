@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "=================================="
-	echo " --- Ubuntu Setup Script 3.13 ---"
+	echo " --- Ubuntu Setup Script 3.14 ---"
 	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -84,7 +84,7 @@ debloatconfirm () {
 	echo "=============================="
 	echo "This will remove all Ubuntu customizations to GNOME and revert to Vanilla GNOME."
 	echo "This will also remove Snap support."
-	echo "After this operation, you may still need to tweak the system to Vanilla GNOME or your personal preference."
+	echo "After this operation, you may still need to tweak the system to Vanilla GNOME or your personal preference. Also, you will have to select GNOME on Xorg when you login if you want to use Xorg as this script resets that setting."
 	tput setaf 9
 	echo "Some operations performed in this script are irreversible!!!"
 	tput sgr0
@@ -173,7 +173,7 @@ full () {
 	sudo apt install -y spotify-client
 	sudo apt update -y
 	sudo apt full-upgrade -y
-	sudo apt autoremove -y
+	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
 	echo "Adding current user to cdrom group..."
@@ -202,7 +202,7 @@ minimal () {
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
 	sudo apt update -y
 	sudo apt full-upgrade -y
-	sudo apt autoremove -y
+	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
 	gio mime text/calendar org.gnome.Calendar.desktop
@@ -238,7 +238,7 @@ fulluniversal () {
 	sudo apt install -y spotify-client
 	sudo apt update -y
 	sudo apt full-upgrade -y
-	sudo apt autoremove -y
+	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
 	echo "Adding current user to cdrom group..."
@@ -267,7 +267,7 @@ minimaluniversal () {
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
 	sudo apt update -y
 	sudo apt full-upgrade -y
-	sudo apt autoremove -y
+	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
 	gio mime text/calendar org.gnome.Calendar.desktop
@@ -280,11 +280,12 @@ debloat () {
 	tput sgr0
 	sleep 3
 	clear
+	sudo apt-mark manual shotwell remmina
 	sudo apt update -y
-	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software
+	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software gnome-backgrounds
 	sudo rm /usr/share/plymouth/ubuntu-logo.png
 	sudo apt purge -y ubuntu-desktop ubuntu-session snapd gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
-	sudo apt autoremove -y
+	sudo apt autoremove -y --purge
 	finish
 }
 # End of Function Cluster
