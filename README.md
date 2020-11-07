@@ -32,6 +32,11 @@ Add shortcut to open “gnome-system-monitor” with “Super+Backspace”
 Refer to image for media controls on desktop keyboards.
 
 
+# Run Script:
+
+Mark the script as executable by changing it in file properties or running `chmod +x /path/to/file`. Then run it in Terminal with `bash /path/to/file`
+
+
 # Media Shortcuts Image:
 ![Error](https://raw.githubusercontent.com/TechnologyMan101/ubuntu-setup-script/main/Media%20Shortcuts%20for%20Desktop%20Keyboards.png)
 
