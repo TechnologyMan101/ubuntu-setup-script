@@ -1,10 +1,10 @@
-# ubuntu-setup-script
+# Ubuntu Setup Script
 Bash script to set up a fresh install of Ubuntu.
 
 
 # Documentation
 
-Version 3.17
+Version 3.18
 
 Supported Ubuntu Versions: 20.04 LTS, 20.10
 
