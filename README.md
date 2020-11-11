@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Ubuntu.
 
 # Documentation
 
-Version 3.18
+Version 3.18.1
 
 Supported Ubuntu Versions: 20.04 LTS, 20.10
 
@@ -12,7 +12,7 @@ Supported Ubuntu Versions: 20.04 LTS, 20.10
 
 **The Extras folder also contains other tools you may want including font packs.**
 
-**Instructions on this document may not completely apply to you if you are using an offical Ubuntu flavor or a derivative of Ubuntu.**
+**Instructions on this document may not completely apply to you if you are using an official Ubuntu flavor or a derivative of Ubuntu.**
 
 Please install .deb files and files using other types of installation formats using files manually (if you have them).
 
