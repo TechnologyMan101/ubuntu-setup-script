@@ -3,9 +3,9 @@
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "=================================="
-	echo " --- Ubuntu Setup Script 3.18 ---"
-	echo "=================================="
+	echo "===================================="
+	echo " --- Ubuntu Setup Script 3.18.1 ---"
+	echo "===================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
 	echo "This script will show terminal output. This is normal."
