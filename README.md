@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Ubuntu.
 
 # Documentation
 
-Version 3.19
+Version 3.20
 
 Supported Ubuntu Versions: 20.04 LTS, 20.10
 
