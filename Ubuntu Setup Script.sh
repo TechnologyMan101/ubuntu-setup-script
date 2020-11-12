@@ -3,9 +3,9 @@
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "===================================="
-	echo " --- Ubuntu Setup Script 3.18.1 ---"
-	echo "===================================="
+	echo "=================================="
+	echo " --- Ubuntu Setup Script 3.19 ---"
+	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
 	echo "This script will show terminal output. This is normal."
@@ -287,6 +287,7 @@ debloat () {
 	sudo apt purge -y ubuntu-desktop ubuntu-session snapd gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
 	sudo apt autoremove -y --purge
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 	finish
 }
 # End of Function Cluster
