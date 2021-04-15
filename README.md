@@ -1,11 +1,10 @@
 # Ubuntu Setup Script
 Bash script to set up a fresh install of Ubuntu.
 
-# This script is now being retired due to lack of use and testing. This script will no longer be maintained, although this script should still continue to function normally until at least Ubuntu 21.04. New features and fixes will no longer be made to this script.
 
 # Documentation
 
-Version 3.20
+Version 3.21
 
 Supported Ubuntu Versions: 20.04 LTS, 20.10
 
