@@ -4,7 +4,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "=================================="
-	echo " --- Ubuntu Setup Script 3.20 ---"
+	echo " --- Ubuntu Setup Script 3.21 ---"
 	echo "=================================="
 	echo "Supported Ubuntu Versions: 20.04 LTS, 20.10"
 	echo "Script may prompt you or ask you for your password once in a while. Please monitor your computer until the script is done."
@@ -83,7 +83,6 @@ debloatconfirm () {
 	echo " --- Debloat Confirmation ---"
 	echo "=============================="
 	echo "This will remove all Ubuntu customizations to GNOME and revert to Vanilla GNOME."
-	echo "This will also remove Snap support."
 	echo "After this operation, you may still need to tweak the system to Vanilla GNOME or your personal preference. Also, you will have to select GNOME on Xorg when you login if you want to use Xorg as this script resets that setting."
 	tput setaf 9
 	echo "Some operations performed in this script are irreversible!!!"
@@ -153,7 +152,7 @@ full () {
 	sudo apt update -y
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
-	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv ffmpegthumbs fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extension-prefs gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples youtube-dl nautilus-admin
+	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar gnome-tweaks lame gpart grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi gnome-sushi unoconv ffmpegthumbs fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gnome-shell-extension-prefs gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples nautilus-admin python3-pip
 	sudo dpkg --add-architecture i386
 	sudo apt update -y
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
@@ -167,15 +166,14 @@ full () {
 	sudo apt install -y mkusb mkusb-nox usb-pack-efi gparted
 	sudo add-apt-repository -y ppa:obsproject/obs-studio
 	sudo apt install -y obs-studio
-	curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt update -y
-	sudo apt install -y spotify-client
+	sudo add-apt-repository ppa:nextcloud-devs/client
+	sudo apt install nextcloud-client
 	sudo apt update -y
 	sudo apt full-upgrade -y
 	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
+	pip3 install youtube-dl
 	echo "Adding current user to cdrom group..."
 	sudo usermod -aG cdrom $USER
 	gio mime text/calendar org.gnome.Calendar.desktop
@@ -218,7 +216,7 @@ fulluniversal () {
 	sudo apt update -y
 	sudo apt install -y gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good libavcodec-extra gstreamer1.0-libav chromium-codecs-ffmpeg-extra libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
-	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar lame gpart speedtest-cli grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi ffmpegthumbs fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples youtube-dl
+	sudo apt install -y ubuntu-restricted-extras gnome-backgrounds ubuntu-gnome-wallpapers synaptic remmina bleachbit frozen-bubble musescore3 asunder brasero k3b pavucontrol pulseeffects rhythmbox shotwell solaar gnome-boxes gparted vlc p7zip-full p7zip-rar lame gpart grub2-common neofetch network-manager-openvpn-gnome ffmpeg httraqt lsp-plugins tree audacity telegram-desktop gufw easytag android-tools-adb android-tools-fastboot gnome-sound-recorder cheese nikwi supertux dconf-editor deja-dup gnome-todo pitivi ffmpegthumbs fonts-cantarell gnome-books krita gnome-clocks gimp htop transmission curl git handbrake gdebi gnome-weather gnome-firmware gucharmap menulibre minetest gtk-3-examples python3-pip
 	sudo dpkg --add-architecture i386
 	sudo apt update -y
 	sudo apt install -y libc6-i386 libx11-6:i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 libpulse0:i386
@@ -232,15 +230,14 @@ fulluniversal () {
 	sudo apt install -y mkusb mkusb-nox usb-pack-efi gparted
 	sudo add-apt-repository -y ppa:obsproject/obs-studio
 	sudo apt install -y obs-studio
-	curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt update -y
-	sudo apt install -y spotify-client
+	sudo add-apt-repository ppa:nextcloud-devs/client
+	sudo apt install nextcloud-client
 	sudo apt update -y
 	sudo apt full-upgrade -y
 	sudo apt autoremove -y --purge
 	sudo apt autoclean -y
 	sudo snap refresh
+	pip3 install youtube-dl
 	echo "Adding current user to cdrom group..."
 	sudo usermod -aG cdrom $USER
 	gio mime text/calendar org.gnome.Calendar.desktop
@@ -282,9 +279,9 @@ debloat () {
 	clear
 	sudo apt-mark manual shotwell remmina
 	sudo apt update -y
-	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software gnome-backgrounds
+	sudo apt install -y gnome-session vanilla-gnome-desktop vanilla-gnome-default-settings gnome-software gnome-backgrounds gnome-software-plugin-snap
 	sudo rm /usr/share/plymouth/ubuntu-logo.png
-	sudo apt purge -y ubuntu-desktop ubuntu-session snapd gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
+	sudo apt purge -y ubuntu-desktop ubuntu-session gnome-shell-extension-desktop-icons gnome-shell-extension-ubuntu-dock yaru*
 	sudo apt autoremove -y --purge
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
