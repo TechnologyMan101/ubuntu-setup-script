@@ -1,3 +1,6 @@
+# NOT MAINTAINED
+
+
 # Ubuntu Setup Script
 Bash script to set up a fresh install of Ubuntu.
 
